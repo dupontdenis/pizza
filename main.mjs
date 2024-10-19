@@ -9,4 +9,5 @@ const { pizzas: pizzasWithPrices, totalPrice } = addPricesToPizzas(
   prices
 );
 
+displayPizzas(pizzas);
 displayPizzas(pizzasWithPrices, totalPrice);
