@@ -1,9 +1,12 @@
 import pizzas from "./pizzas.mjs";
-import { displayPizzas } from "./displayPizzas.mjs";
+// import { displayPizzas } from "./displayPizzas.mjs";
+import { displayPizzas } from "./display.mjs";
 import prices from "./prices.mjs";
-import addPriceToPizzas from "./addPriceToPizzas.mjs";
+import { addPricesToPizzas } from "./addPricesToPizzas.mjs";
 
-const pizzasWithPrices = addPriceToPizzas(pizzas, prices);
+const { pizzas: pizzasWithPrices, totalPrice } = addPricesToPizzas(
+  pizzas,
+  prices
+);
 
-displayPizzas(pizzas);
-displayPizzas(pizzasWithPrices);
+displayPizzas(pizzasWithPrices, totalPrice);
