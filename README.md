@@ -89,6 +89,58 @@ const headers = ["username", "email", "role"];
 
 With this single code snippet, you can generate headers for any data type, avoiding the need to write out each table header by hand.
 
+### Consequence: Dynamic Table Row Generation
+
+To match the dynamic headers, you must also generate each table row dynamically:
+
+```js
+<tr>
+  $
+  {headers
+    .map(
+      (header) =>
+        `<td>$
+          {Array.isArray(pizza[header])
+            ? pizza[header].join(" + ")
+            : pizza[header]
+          }
+        </td>`
+    )
+    .join("")}
+</tr>
+```
+
+**Why use headers?**
+
+- Using `headers` ensures that the order and presence of columns in each row matches the table header, even if the data structure changes or new properties are added.
+
+**Why check for arrays?**
+
+- Some properties (like a list of ingredients) may be arrays. If you display them directly, you'll get something like `"cheese,tomato"` (without spaces) or even `[object Object]` if it's an array of objects. By checking with `Array.isArray`, you can join array values into a readable string.
+
+**Example:**
+
+Suppose you have:
+
+```js
+const pizza = {
+  name: "Margherita",
+  price: 10,
+  ingredients: ["cheese", "tomato"],
+};
+const headers = Object.keys(pizza); // ["name", "price", "ingredients"]
+```
+
+The generated row will be:
+
+```html
+<tr>
+  <td>Margherita</td>
+  <td>10</td>
+  <td>cheese + tomato</td>
+</tr>
+```
+
 ### Why is this important?
 
 - **Dynamic UI Creation:** This code dynamically generates table headers based on the data's property names. It means you don't have to hardcode the headers, making your code more flexible and maintainable.

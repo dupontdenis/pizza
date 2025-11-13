@@ -27,7 +27,7 @@ export function displayPizzas(pizzas) {
                 (header) =>
                   `<td>${
                     Array.isArray(pizza[header])
-                      ? pizza[header].join(", ")
+                      ? pizza[header].join(" + ")
                       : pizza[header]
                   }</td>`
               )
