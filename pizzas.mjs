@@ -1,8 +1,8 @@
 const pizzas = [
-  { name: "queen", ingredients: ["🐷", "🍄", "🍅", "🧀"] },
-  { name: "cheese", ingredients: ["🧀", "🍅"] },
-  { name: "oriental", ingredients: ["🍅", "🐑", "🍄", "🌶"] },
-  { name: "royal", ingredients: ["🍅", "🌵"] },
+  { price: 10, name: "queen", ingredients: ["🐷", "🍄", "🍅", "🧀"] },
+  { price: 10, name: "cheese", ingredients: ["🧀", "🍅"] },
+  { price: 10, name: "oriental", ingredients: ["🍅", "🐑", "🍄", "🌶"] },
+  { price: 10, name: "royal", ingredients: ["🍅", "🌵"] },
 ];
 
 export default pizzas;
